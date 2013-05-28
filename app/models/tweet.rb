@@ -5,4 +5,9 @@ class Tweet < ActiveRecord::Base
 	  config.oauth_token = '1463450034-1NPYyV77gzhTDxiPzwwSVZl4p2ZCrf68giVK7UL'
 	  config.oauth_token_secret = 'krAWo4r2u1re49MvL0DyWEeiYaUCAV4uCXFMVnzvY'
 	end
+
+	def read_message
+      return "No hay Usuario" if self.user.blank?
+      Twitter.user_timeline(self.user).first.text
+  	end
 end

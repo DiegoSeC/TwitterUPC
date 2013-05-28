@@ -1,11 +1,17 @@
 class TweetsController < ApplicationController
+
+  def read_message
+    @tweet = Tweet.new(params[:tweet])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @tweet }
+    end
+  end
+
+
   # GET /tweets
   # GET /tweets.json
-def read_message
-    return "No hay Usuario" if self.user.blank?
-    Twitter.user_timeline(self.user).first.text
-end
-
   def index
     @tweet= Tweet.new
     @tweets = Tweet.all
