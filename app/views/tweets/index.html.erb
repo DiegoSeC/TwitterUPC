@@ -1,28 +1,51 @@
-<h1>Listing tweets</h1>
+<h2>Listing tweets</h2>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Url</th>
-    <th>Message</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<hr>
 
-<% @tweets.each do |tweet| %>
-  <tr>
-    <td><%= tweet.user %></td>
-    <td><%= tweet.url %></td>
-    <td><%= tweet.message %></td>
-    <td><%= link_to 'Show', tweet %></td>
-    <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-    <td><%= link_to 'Destroy', tweet, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Url</th>
+      <th>Message</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet.user %></td>
+        <td><%= tweet.url %></td>
+        <td><%= tweet.message %></td>
+        <td><%= link_to 'Show', tweet %></td>
+        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
+        <td><%= link_to 'Destroy', tweet, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+
 </table>
 
 <br />
 
-<%= link_to 'New Tweet', new_tweet_path %>
+<%= link_to 'New Tweet', new_tweet_path, :class => "btn btn-primary" %>
+
+<br />
+
+<h3>Buscar Tweet</h3>
+<hr>
 <%= render 'formReadMessage'%>
+<br />
+
+<h3>Leer URL</h3>
+<hr>
+<%= render 'formReadUrl'%>
+<br />
+
+<h3>Update Status</h3>
+<hr>
+<%= render 'formUpdateStatus'%>
+<br />

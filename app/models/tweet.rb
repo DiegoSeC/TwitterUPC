@@ -10,4 +10,15 @@ class Tweet < ActiveRecord::Base
       return "No hay Usuario" if self.user.blank?
       Twitter.user_timeline(self.user).first.text
   	end
+
+  	def read_url
+  		return "No hay usuario" if self.url.blank?
+  		id = self.url.split('/')
+  		Twitter.status(id[5]).text
+  	end
+
+  	def update_status
+  		return "No hay usuario" if self.message.blank?
+  		Twitter.update(self.message)
+  	end
 end

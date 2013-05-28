@@ -9,6 +9,24 @@ class TweetsController < ApplicationController
     end
   end
 
+  def read_url
+    @tweet = Tweet.new(params[:tweet])
+
+    respond_to do |format|
+      format.html
+      format.json {render json: @tweet}
+    end
+  end
+
+  def update_status
+    @tweet = Tweet.new(params[:tweet])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @tweet }
+    end
+  end
+
 
   # GET /tweets
   # GET /tweets.json

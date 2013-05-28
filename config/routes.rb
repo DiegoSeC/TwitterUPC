@@ -4,6 +4,8 @@ UPCTwitter::Application.routes.draw do
   root :to => 'tweets#index'
 
   match "read_message" => "tweets#read_message"
+  match "read_url" => "tweets#read_url"
+  match "update_status" => "tweets#update_status"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
